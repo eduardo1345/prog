@@ -1,0 +1,38 @@
+/* 
+ * File:   main.c
+ * Author: a2070022
+ *
+ * Created on 29 de Novembro de 2018, 07:43
+ */
+/*
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+double fatorial(double n){
+    if(n>1)
+        return n*fatorial(n-1);
+    else
+        return 1;
+}
+    
+
+double euler(double n){
+    
+    if(1/fatorial(n)<10E-8)
+        return 0;
+    else
+        return 1/fatorial(n) + euler(n+1);
+}
+
+int main(){
+
+    printf("Numero Euler: %.10lf\n", euler(0));
+    return(EXIT_SUCCESS);
+
+}
+
+*/
