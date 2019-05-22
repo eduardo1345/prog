@@ -1,0 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   main.c
+ * Author: a2070022/ Eduardo Pereira da Trindae
+ *
+ * criado em 14 de Agosto de 2018, 08:25
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double total_vendas=0;
+double  salario=1200;
+double comisao=10/100;
+int total=0;
+
+int main(int argc,char** argv){
+  
+    printf("Degite o valor total de vendas: \n") ;    
+    scanf("%lf",&total_vendas);
+
+        total= (total_vendas/comisao+salario); 
+
+    printf("salario: %lf  \n",total);
+
+   return (EXIT_SUCCESS);
+}
