@@ -1,0 +1,54 @@
+/* 
+ * File:   main.c
+ * Author: a2070022
+ *
+ * Created on 31 de Outubro de 2018, 13:33
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double *aloca_vetor(int n) {
+    double *tmp = NULL;
+    tmp = (double*) malloc(n * sizeof (double));
+    for (int i; i < n; i++) {
+        printf("Digite o tmp[%i]:", i);
+        scanf("%lf",&tmp[i]);
+    }
+    return tmp;
+}
+
+double **aloca_matriz(double *V,int n, int m) {
+    double **tmp = NULL;
+    tmp= (double**) malloc(n *sizeof(double));
+    for (int i; i < n; i++) {
+        tmp[i] = (double *) malloc(m * sizeof(double));
+    }
+    for (int i; i < n; i++) {
+        for (int j; j < m; j++) {
+            
+            tmp[i][j] = pow(V[i],j);        
+        }
+    }
+    return tmp;
+}
+
+int main(int argc, char** argv) {
+ double *vetor=NULL;
+    double **matriz=NULL;
+    int n=0,m=0;
+    printf("Digite o tamanho do vetor:");
+    scanf("%i", &n);
+    vetor = aloca_vetor(n);
+    printf("Digite o número de colunas:");
+    scanf("%i", &m);
+    matriz=aloca_matriz(vetor,n,m);
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            printf("%.0lf\t",matriz[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
