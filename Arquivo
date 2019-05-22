@@ -1,0 +1,32 @@
+/* 
+ * File:   main.c
+ * Author: a2070022
+ *
+ * Created on 20 de Novembro de 2018, 08:04
+ */
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(int argc, char** argv) {
+    
+ FILE *meu_arquivo=NULL;
+ meu_arquivo= fopen("arquivo.txt","r");
+ if(meu_arquivo==NULL){
+     printf("ERROR 404");
+     exit(1);
+ }
+ 
+ printf("open sucess");
+ 
+ char x =fgetc("meu_arquivo");
+ while(fgetc(meu_arquivo)==0)
+    printf("%C",x);
+    x =fgetc(meu_arquivo);
+    
+ if(fclose(meu_arquivo)!=0){
+     printf("Problema ao fechar o arquivo!");
+     exit(1);
+ }
+    return (EXIT_SUCCESS);
+}
