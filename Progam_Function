@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+    
+/*
+int numero=10;
+
+int *exemplo=NULL;
+
+int main(int argc, char** argv) {
+
+  printf("%i\n",numero);  
+  printf("%p\n",&exemplo);  
+    
+        exemplo = &numero;  
+  
+  printf("%p\n",&exemplo);
+  printf("%p\n",numero);  
+    
+       *exemplo = *exemplo + 15;
+       (*exemplo)++;
+  
+     printf("%i \n",*exemplo);
+    
+ 
+    return (EXIT_SUCCESS);
+}*/
+  
+
+
+
+int main(int argc, char** argv) {
+
+    int var[5]={1,2,3,4,5};
+    int *exemplo=NULL;
+
+    printf("%p\n",var);
+    printf("%p\n",&var);
+    
+    exemplo= var;
+
+    for(int c=0 ;c<5; c++){
+        printf ("dados:%i e igual a %i e %i \n\n",exemplo[c],*(exemplo+c), var[c]);
+        printf("End. Mem. : %p e igual a %p e %p\n\n",&exemplo[c],exemplo+c,&var[c]);
+   
+    }
+    return 0;
+}
