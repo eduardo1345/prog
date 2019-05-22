@@ -1,0 +1,40 @@
+
+
+//File:   main.c
+//  Author: a2070022
+//Created on 30 de Agosto de 2018, 08:03
+ 
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#define SAL_MIN 880
+#define PERC_HE 1.50
+
+double salario_normal=0;
+double num_salario=0;
+double num_HE=0;
+double valor_ht=0;
+double salario_final=0;
+double valor_he=0;
+
+int main(){
+            
+        printf("degite quantos salarios vc recebe\n");
+        scanf("%lf",&num_salario);
+        
+        printf("DIgite quantas hrs extra vc recebe \n");
+        
+        scanf("%lf", &num_HE );
+        
+        salario_normal= num_salario * SAL_MIN;
+        
+        valor_ht=salario_normal/176;
+        valor_he=valor_ht + valor_ht * PERC_HE;
+        
+        salario_final=salario_normal+valor_ht+num_HE;
+        
+        printf("seu salario final é R$ %.2lf \n", salario_final);
+        
+    return (EXIT_SUCCESS);
+}
