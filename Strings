@@ -1,0 +1,24 @@
+/* 
+ * File:   main.c
+ * Author: a2070022
+ *
+ * Created on 20 de Setembro de 2018, 07:31
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include  <string.h>
+
+char texto[3][21];
+
+int main(int argc, char** argv) {
+
+    for(int i=0;i<10;i++){
+        printf("Digite o texto [%i]:",i);
+        fgets(texto[i],sizeof(texto[i]),stdin);
+        texto[i][strcspn(texto[i],"\n")]='\0';
+    }
+        for(int i=0; i<10;i++){
+            printf("texto[%i] %s \n",i,texto[i]);
+        }
+    return (EXIT_SUCCESS);
+}
