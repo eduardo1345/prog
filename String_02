@@ -1,0 +1,23 @@
+/* 
+ * File:   main.c
+ * Author: a2070022
+ *
+ * Created on 24 de Setembro de 2018, 12:36
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char nome[21];
+
+int main(int argc, char** argv) {
+
+    fgets(nome,sizeof(nome),stdin);
+    nome[strcspn(nome,"\n")]='\0';
+    printf("Nome informado: %s \n", nome);
+    printf("Primeira letra do nome: %c \n", nome[0]);
+    
+    
+    return (EXIT_SUCCESS);
+}
