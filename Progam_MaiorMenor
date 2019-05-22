@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int a=0;
+int b=0;
+int c=0;
+int maior=0;
+int menor=0;
+
+int main(){
+    
+    printf("Digite tres idades:");
+        printf("Idade 1:");
+         scanf("%i",&a);
+            printf("Idade 2:");
+                scanf("%i",&b);
+                     printf("Idade 3:");
+                        scanf("%i",&c);
+                    
+    if(a>=b && b>=c){
+        maior=a; menor=c;
+         } 
+        if(a>=c && c>=b){
+        maior=a; menor=b;
+            }
+            if(b>=a && a>=c){
+        maior=b; menor=c;
+                   }
+            if(b>=c && c>=a){
+        maior=b; menor=a;
+                 }            
+        if(c>=a && a>=b){
+        maior=c; menor=b;
+              }            
+     if(c>=b && b>=a){
+        maior=c; menor=a;
+            }      
+    printf("maior idade: %i ,Menor de idade:%i\n",maior,menor);
+    
+    if(a==b || b==c){
+        printf("Três idades iguais!!!\n");
+    }
+    else{
+        if(a==b || b==c || c==a){
+            printf("Duas idades iguais a: %i \n",a==b?a: b==c?c: c==a?c:0);
+        }
+        else{
+            printf("três idades diferentes!\n");
+        }
+    }
+    return 0;
+}
