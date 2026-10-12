@@ -3,6 +3,28 @@
  * Author: a2070022
  *
  * Created on 29 de Novembro de 2018, 07:43
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    double euler = 0.0;
+    double termo = 1.0; // Representa 1 / n!
+    int n = 0;
+
+    // O loop continua até que o termo atual seja menor que a precisão desejada (1e-8)
+    while (termo >= 1E-8) {
+        euler += termo;
+        n++;
+        // Em vez de recalcular o fatorial do zero, apenas dividimos o termo anterior por n
+        termo = termo / n; 
+    }
+
+    printf("Numero Euler: %.10lf\n", euler);
+
+    return 0;
+}
+
+
  */
 /*
 
