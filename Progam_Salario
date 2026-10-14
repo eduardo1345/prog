@@ -1,40 +1,49 @@
-
-
 //File:   main.c
-//  Author: a2070022
+// Author: a2070022
 //Created on 30 de Agosto de 2018, 08:03
- 
+//last update 13/10/2026
+//#define SALARIO_MINIMO 880.0 2019
 
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
-#define SAL_MIN 880
-#define PERC_HE 1.50
 
-double salario_normal=0;
-double num_salario=0;
-double num_HE=0;
-double valor_ht=0;
-double salario_final=0;
-double valor_he=0;
+// Define o valor do salario minimo
+#define SALARIO_MINIMO 1621.0
 
-int main(){
-            
-        printf("degite quantos salarios vc recebe\n");
-        scanf("%lf",&num_salario);
-        
-        printf("DIgite quantas hrs extra vc recebe \n");
-        
-        scanf("%lf", &num_HE );
-        
-        salario_normal= num_salario * SAL_MIN;
-        
-        valor_ht=salario_normal/176;
-        valor_he=valor_ht + valor_ht * PERC_HE;
-        
-        salario_final=salario_normal+valor_ht+num_HE;
-        
-        printf("seu salario final é R$ %.2lf \n", salario_final);
-        
-    return (EXIT_SUCCESS);
+// Define o percentual de adicional das horas extras (50%)
+#define PERCENTUAL_HORA_EXTRA 0.50
+
+int main(void) {
+
+    // Variaveis de entrada
+    double quantidade_salarios_minimos, quantidade_horas_extras;
+
+    // Variaveis utilizadas nos calculos
+    double salario_base,valor_hora_normal,valor_hora_extra,salario_total;
+
+    // Solicita a quantidade de salarios minimos recebidos
+    printf("Digite quantos salarios minimos voce recebe:\n");
+    scanf("%lf", &quantidade_salarios_minimos);
+
+    // Solicita a quantidade de horas extras trabalhadas
+    printf("Digite quantas horas extras voce fez:\n");
+    scanf("%lf", &quantidade_horas_extras);
+
+    // Calcula o salario normal, sem horas extras
+    salario_base = quantidade_salarios_minimos * SALARIO_MINIMO;
+
+    // Calcula o valor de uma hora normal de trabalho
+    // Considerando uma jornada mensal de 176 horas
+    valor_hora_normal = salario_base / 220.0;
+
+    // Calcula o valor de uma hora extra com adicional de 50%
+    valor_hora_extra = valor_hora_normal *  (1.0 + PERCENTUAL_HORA_EXTRA);
+
+    // Soma o salario normal com o valor total das horas extras
+    salario_total = salario_base + (valor_hora_extra * quantidade_horas_extras);
+
+    // Exibe o salario final com duas casas decimais
+    printf("Seu salario final e R$ %.2f\n", salario_total);
+
+    return EXIT_SUCCESS;
 }
