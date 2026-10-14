@@ -1,0 +1,37 @@
+#define LED 13
+#define LED_GREEN 12
+#define BOTAO 2
+
+int estado_atual = 0;
+int estado_anterior = 0;
+
+void setup()
+{
+  pinMode(LED, OUTPUT);
+  pinMode(BOTAO,INPUT);
+  pinMode(LED_GREEN,OUTPUT);
+}
+
+void loop()
+{
+  estado_atual=digitalRead(BOTAO);
+  
+  
+  if(estado_atual != estado_anterior){
+    
+    digitalWrite(LED,HIGH);
+    digitalWrite(LED_GREEN,LOW);
+    
+   		if(estado_atual == HIGH) {
+    		digitalWrite(LED_GREEN,HIGH);
+            digitalWrite(LED,LOW);
+     	    delay (50);
+    }
+  }
+  else {
+    
+    
+    }
+    
+    
+  
