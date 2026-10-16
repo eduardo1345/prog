@@ -1,4 +1,8 @@
-#define LED 13
+
+    
+    
+  
+/*#define LED 13
 #define LED_GREEN 12
 #define BOTAO 2
 
@@ -19,19 +23,80 @@ void loop()
   
   if(estado_atual != estado_anterior){
     
-    digitalWrite(LED,HIGH);
-    digitalWrite(LED_GREEN,LOW);
-    
    		if(estado_atual == HIGH) {
     		digitalWrite(LED_GREEN,HIGH);
-            digitalWrite(LED,LOW);
-     	    delay (50);
+  			digitalWrite(LED,LOW);
     }
   }
   else {
+    digitalWrite(LED,HIGH);
+    digitalWrite(LED_GREEN,LOW);
+    delay (50);  
     
-    
+
     }
     
     
   
+    
+ estado_anterior = estado_atual;
+}*/
+
+#define LED 13
+#define LED_GREEN 12
+#define BOTAO 2
+
+int estado_atual = 0;
+int estado_anterior = 0;
+
+// Controla qual LED deve ficar aceso
+int verde_aceso = 0;
+
+void setup() {
+  pinMode(LED, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(BOTAO, INPUT);
+
+  //Comeca com o LED vermelho aceso
+  digitalWrite(LED, HIGH);
+  digitalWrite(LED_GREEN, LOW);
+}
+
+void loop() {
+
+  // Le o estado atual do botao
+  estado_atual = digitalRead(BOTAO);
+
+  // Primeira comparacao: verifica se o botao mudou de estado
+  if (estado_atual != estado_anterior) {
+
+    // Aguarda 50 ms para reduzir o efeito bounce
+    delay(50);
+
+    // Le novamente o botao apos o delay
+    estado_atual = digitalRead(BOTAO);
+
+    // Segunda comparacao: confirma se o estado realmente mudou
+    if (estado_atual != estado_anterior) {
+
+      // Verifica se o botao foi pressionado (estado = 1)
+      if (estado_atual == HIGH) {
+
+        // Inverte o estado do LED verde
+       verde_aceso = !verde_aceso;
+
+        // Atualiza os LEDs
+        if (verde_aceso == 1) {
+          digitalWrite(LED_GREEN, HIGH);
+          digitalWrite(LED, LOW);
+        } else {
+          digitalWrite(LED_GREEN, LOW);
+          digitalWrite(LED, HIGH);
+        }
+      }
+
+      // Guarda o estado atual para a proxima comparacao
+      estado_anterior = estado_atual;
+    }
+  }
+}
